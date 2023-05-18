@@ -36,7 +36,13 @@ public class UserController {
 
     @PostMapping("/create")
     public String createUser(@RequestBody User user) {
-
-        return "Create User " + user.getUsername() + " " + user.getPassword();
+        String json = "{\n" +
+                "  \"id\": 1,\n" +
+                "  \"username\": \"?\",\n" +
+                "  \"password\": \"matkhau\"\n" +
+                "}";
+        json = json.replace("?", user.getUsername());
+        json  = json.replace("matkhau", user.getPassword());
+        return json;
     }
 }
